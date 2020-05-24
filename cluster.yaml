@@ -1,0 +1,20 @@
+apiVersion: edgefs.rook.io/v1
+kind: Cluster
+metadata:
+  name: rook-edgefs
+  namespace: rook-edgefs
+spec:
+  edgefsImageName: edgefs/edgefs:latest
+  serviceAccount: rook-edgefs-cluster
+  dataDirHostPath: /data
+  sysRepCount: 1
+  failureDomain: "device"
+  storage:
+    useAllDevices: false
+    useAllNodes: false
+    directories:
+    - path: "/storage" 
+    nodes:
+    - name: "node1"
+    - name: "node2"
+    - name: "node3"    
