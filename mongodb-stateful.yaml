@@ -12,7 +12,7 @@ spec:
   selector:
     role: mongo
 ---
-apiVersion: apps/v1 
+apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: mongo
@@ -26,17 +26,19 @@ spec:
     metadata:
       labels:
         role: mongo
-        environment: test
         app: mongodb
+        environment: test
     spec:
       terminationGracePeriodSeconds: 10
       containers:
         - name: mongo
-          image: mongo
+          image: mongo:3.4
           command:
             - mongod
             - "--replSet"
             - rs0
+            - "--bind_ip"
+            - 0.0.0.0
             - "--smallfiles"
             - "--noprealloc"
           ports:
@@ -59,3 +61,4 @@ spec:
       resources:
         requests:
           storage: 100Gi
+

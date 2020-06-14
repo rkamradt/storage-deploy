@@ -13,7 +13,17 @@ spec:
           serviceName: rook-edgefs-ui
           servicePort: 3000
         path: /
+  - host: mongo-express.local
+    http:
+      paths:
+      - backend:
+          serviceName: mongo-express
+          servicePort: 8081
+        path: /
   tls:
+  - hosts:
+    - mongo-express.local
+    secretName: mongo-express-cert
   - hosts:
     - rook.local
     secretName: rook-cert

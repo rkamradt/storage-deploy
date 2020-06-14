@@ -2,5 +2,5 @@ k8sEdgefsNamespaces: ["rook-edgefs"]
 k8sEdgefsMgmtPrefix: rook-edgefs-mgr 
 cluster: cltest 
 tenant: test    
-username: admin 
-password: edgefs 
+username: admin
+password: admin
