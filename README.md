@@ -26,6 +26,18 @@ username admin and password edgefs
 
 ## To use CSI for dynamic provisioning
 
+Install nfs on all nodes
+
+```
+sudo apt install -y nfs-common rpcbind open-iscsi watchdog
+```
+
+Install CSI drivers
+```
+kubectl create -f https://raw.githubusercontent.com/kubernetes/csi-api/release-1.13/pkg/crd/manifests/csidriver.yaml
+kubectl create -f https://raw.githubusercontent.com/kubernetes/csi-api/release-1.13/pkg/crd/manifests/csinodeinfo.yaml
+```
+
 Set up a namespace
 
 ```
